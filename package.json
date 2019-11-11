@@ -1,0 +1,42 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "react + dotnet core + webpack + openidconnect",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "aspnet-webpack": "^3.0.0",
+    "aspnet-webpack-react": "^4.0.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.5.0",
+    "webpack-hot-middleware": "^2.24.3",
+    "style-loader": "^0.23.1",
+    "css-loader": "^2.1.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "axios": "^0.19.0",
+    "es6-promise": "^4.2.5",
+    "jwt-decode": "^2.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-form": "^7.4.2",
+    "redux-thunk": "^2.3.0",
+    "react-hot-loader": "^4.6.3"
+  }
+}

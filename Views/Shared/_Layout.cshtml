@@ -1,0 +1,34 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - MyApp</title>
+        <base href="~/" />
+
+
+    </head>
+    <body>
+        @RenderBody()
+
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="http-equiv" content="Content-type: text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <script src="" charset="utf-8"></script>
+    <div id="root"></div>
+    @RenderBody()
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
