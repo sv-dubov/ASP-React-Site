@@ -38,7 +38,7 @@ class App extends Component {
               <div className="row">
                   <div className="col-lg-8 col-md-10 mx-auto">
                       <div className="post-preview">
-                          <a href="post.html">
+                          <a href="/Post">
                               <h2 className="post-title">
                                   <span key={post.id}> {post.header} </span>
                               </h2>

@@ -56,9 +56,6 @@ class Signin extends Component {
                       <button className="btn btn-primary" type="submit">
                           Увійти
                       </button>
-                      <button className="btn btn-primary" type="button" onClick={this.onForgetPasswordClicked}>
-                          Забули пароль?
-                      </button>
                   </div>
               </form>
           </div>
