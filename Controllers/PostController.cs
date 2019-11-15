@@ -27,6 +27,7 @@ namespace MyApp.Controllers
             {
                 PostId = p.PostId,
                 Header = p.Header,
+                Preview = p.Preview,
                 Body = p.Body,
                 Image = p.Image,
                 Author = p.Author,
@@ -42,6 +43,7 @@ namespace MyApp.Controllers
             {
                 PostId = model.PostId,
                 Header = model.Header,
+                Preview = model.Preview,
                 Body = model.Body,
                 Image = model.Image,
                 Author = model.Author,
