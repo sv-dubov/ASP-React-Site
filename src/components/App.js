@@ -46,15 +46,6 @@ class App extends Component {
                           <p className="post-meta">
                               <span key={post.id}> {post.preview} </span>
                           </p>
-                          <p>
-                              <img key={post.id} src={post.image} alt="" />
-                          </p>
-                          <p className="post-meta">Автор:
-                              <span key={post.id}> {post.author} </span>
-                          </p>
-                          <p className="post-meta">Дата:
-                              <span key={post.id}> {post.date} </span>
-                          </p>
                       </div>
                   </div>
               </div>
@@ -63,9 +54,9 @@ class App extends Component {
       );
     return (
         <div className="container">
-            <h1>Список новин</h1>
+            <h1>Останні новини</h1>
             <p>
-                <button type="button" className="btn btn-lg btn-info" onClick={this.getListDataHandler}>Переглянути новини</button>
+                <button type="button" className="btn btn-lg btn-info" onClick={this.getListDataHandler}>Переглянути список</button>
             </p>
             <div className="card-deck mb-3 text-center" style={{ overflow: "hidden" }}>
                 {todoItems}

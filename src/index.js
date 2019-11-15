@@ -14,6 +14,7 @@ require('./Polyfills/index').from();
 import App from './components/App';
 import Signup from './components/auth/Signup';
 import Signin from './components/auth/Signin';
+import Post from './components/Post';
 import Signout from './components/auth/Signout';
 import ResetPassword from './components/auth/ResetPassword';
 import ForgetPassword from './components/auth/ForgetPassword';
@@ -36,6 +37,9 @@ ReactDOM.render(
                                     <Link to="/">Домашня сторінка</Link>
                                 </li>
                                 <li>
+                                    <Link to="/Post">Новини</Link>
+                                </li>
+                                <li>
                                     <Link to="/Signin">Увійти</Link>
                                 </li>
                                 <li>
@@ -53,6 +57,7 @@ ReactDOM.render(
 
                             <Route path="/Signin" component={Signin} />
                             <Route path="/Signup" component={Signup} />
+                            <Route path="/Post" component={Post} />
                             <Route path="/ForgetPassword" component={ForgetPassword} />
                             <Route path="/resetPassword/email/:email/code/:code*" component={ResetPassword} />
                             <Route path="/Feature" component={RequiredAuth(Feature)} />
