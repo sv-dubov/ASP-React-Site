@@ -1,15 +1,15 @@
 ﻿import React, { Component } from "react";
 import axios from 'axios';
 
-import EclipseWidget from './eclipse';
-
 class Feature extends Component {
 
     state = {
         header: '',
+        preview: '',
         body: '',
         image: '',
         author: '',
+        date: new Date(),
         posts: [],
         loading: false
     }
@@ -20,15 +20,15 @@ class Feature extends Component {
 
     addProductSubmitForm = (e) => {
         //e.preventDefault();
-        const { header, body, image, author } = this.state;
+        const { header, preview, body, image, author, date } = this.state;
         const urlPosts = `http://localhost:51948/api/post`;
         const urlAddPost = 'http://localhost:51948/api/post/create';
         this.setState({ loading: true });
-        const model = { header: header, body: body, image: image, author: author };
+        const model = { header: header, preview: preview, body: body, image: image, author: author, date: date };
         axios.post(urlAddPost, model).then(
             (resp) => {
                 console.log('-----axios res add post-----', resp);
-                this.setState({ header: '', body: '', image: '', author: '', loading: false });
+                this.setState({ header: '', preview: '', body: '', image: '', author: '', date: new Date(), loading: false });
             }
         );
 
@@ -58,7 +58,18 @@ class Feature extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label for="">Текст: </label>
+                        <label for="preview">Анонс: </label>
+                        <textarea id="preview"
+                            name="preview"
+                            type="text"
+                            onChange={this.onChange}
+                            value={this.state.preview}
+                            placeholder="Анонс статті"
+                            className="form-control" />
+                    </div>
+
+                    <div className="form-group">
+                        <label for="body">Текст: </label>
                         <textarea id="body"
                             name="body"
                             type="text"

@@ -42,7 +42,7 @@ ReactDOM.render(
                                     <Link to="/Signup">Зареєструватися</Link>
                                 </li>
                                 <li>
-                                    <Link to="/Feature">Кабінет користувача</Link>
+                                    <Link to="/Feature">Додати статтю</Link>
                                 </li>
                                 <li>
                                     <Link to="/Signout">Вийти</Link>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyApp.Migrations
 {
-    public partial class Newdatabase : Migration
+    public partial class AddDbNewsSite : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -92,6 +92,7 @@ namespace MyApp.Migrations
                     PostId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Header = table.Column<string>(nullable: true),
+                    Preview = table.Column<string>(nullable: true),
                     Body = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
                     Author = table.Column<string>(nullable: true),

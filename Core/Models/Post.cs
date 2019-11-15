@@ -13,6 +13,7 @@ namespace MyApp.Core.Models
         [Key]
         public int PostId { get; set; }
         public string Header { get; set; }
+        public string Preview { get; set; }
         public string Body { get; set; }
         public string Image { get; set; }
         public string Author { get; set; }

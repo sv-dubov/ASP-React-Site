@@ -173,7 +173,7 @@ namespace MyApp.Controllers
                 }
                 if(model.NewPassword != model.ConfirmPassword) 
                 {
-                    return BadRequest("the password and confirm password not match.");
+                    return BadRequest("Паролі не співпадають");
                 }
             
           

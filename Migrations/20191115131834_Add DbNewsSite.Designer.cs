@@ -9,8 +9,8 @@ using MyApp.Persistence;
 namespace MyApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191112191835_New database")]
-    partial class Newdatabase
+    [Migration("20191115131834_Add DbNewsSite")]
+    partial class AddDbNewsSite
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -211,6 +211,8 @@ namespace MyApp.Migrations
                     b.Property<string>("Header");
 
                     b.Property<string>("Image");
+
+                    b.Property<string>("Preview");
 
                     b.HasKey("PostId");
 

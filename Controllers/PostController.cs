@@ -29,7 +29,8 @@ namespace MyApp.Controllers
                 Header = p.Header,
                 Body = p.Body,
                 Image = p.Image,
-                Author = p.Author
+                Author = p.Author,
+                CreatedDate = DateTime.Now
             }).ToList();
             return Ok(model);
         }
@@ -43,7 +44,8 @@ namespace MyApp.Controllers
                 Header = model.Header,
                 Body = model.Body,
                 Image = model.Image,
-                Author = model.Author
+                Author = model.Author,
+                CreatedDate = DateTime.Now
             };
             _context.Posts.Add(post);
             _context.SaveChanges();

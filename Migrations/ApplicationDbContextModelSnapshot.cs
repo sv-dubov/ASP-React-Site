@@ -210,6 +210,8 @@ namespace MyApp.Migrations
 
                     b.Property<string>("Image");
 
+                    b.Property<string>("Preview");
+
                     b.HasKey("PostId");
 
                     b.ToTable("tblPosts");
