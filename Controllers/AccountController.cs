@@ -1,15 +1,18 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using cn_react_dotnetcore.Core.Services;
+using MyApp.Core.Services;
 using cn_react_dotnetcore.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MyApp.Core.Models;
 using MyApp.Persistence;
 using MyApp.ViewModels;
+using Microsoft.Extensions.Configuration;
+using System.Net;
 
 namespace MyApp.Controllers
 {
@@ -19,14 +22,16 @@ namespace MyApp.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IOptions<IdentityOptions> _identityOptions;
         private readonly ApplicationDbContext _applicationDbContext;
-
         private readonly IEmailSender _emailSender;
+        private readonly IConfiguration _configuration;
+
         private static bool _databaseChecked;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             IOptions<IdentityOptions> identityOptions,
             SignInManager<ApplicationUser> signInManager,
+            IConfiguration configuration,
             IEmailSender emailSender,
             ApplicationDbContext applicationDbContext
             )
@@ -34,6 +39,7 @@ namespace MyApp.Controllers
             _userManager = userManager;
             _identityOptions = identityOptions;
             _signInManager = signInManager;
+            _configuration = configuration;
             _emailSender = emailSender;
             _applicationDbContext = applicationDbContext;
         }
@@ -70,7 +76,18 @@ namespace MyApp.Controllers
                     //    "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
                     //===========================================================================
                     //but we do nothing now just return ok
-                    await _emailSender.SendPassEmail(model);
+                    //await _emailSender.SendPassEmail(model);
+                    string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
+                    var frontEndURL = _configuration.GetValue<string>("FrontEndURL");
+
+                    var callbackUrl =
+                        $"{frontEndURL}/confirmemail?userId={user.Id}&" +
+                        $"code={WebUtility.UrlEncode(code)}";
+
+                    await _emailSender.SendEmailAsync(model.Email, "Confirm Email",
+                       $"Please confirm your email by clicking here: " +
+                       $"<a href='{callbackUrl}'>link</a>");
                     return Ok();
                 }
                 else

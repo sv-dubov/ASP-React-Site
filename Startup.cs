@@ -12,8 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using MyApp.Core.Models;
 using Microsoft.AspNetCore.Identity;
 using AspNet.Security.OpenIdConnect.Primitives;
-using cn_react_dotnetcore.Core.Services;
+using MyApp.Core.Services;
 using System.Threading;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace MyApp
 {
