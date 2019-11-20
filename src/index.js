@@ -22,6 +22,8 @@ import Feature from './components/Feature';
 import RequiredAuth from './components/RequiredAuth';
 import reducers from './reducers/index';
 import Startup from './Startup';
+import ConfirmEmailPage from './components/auth/ConfirmEmail';
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 ReactDOM.render(
@@ -63,7 +65,7 @@ ReactDOM.render(
                             <Route path="/Feature" component={RequiredAuth(Feature)} />
                             <Route path="/Signout" component={RequiredAuth(Signout)} />
                             <Route exact path="/" component={App} />
-
+                            <Route path='/confirmemail' component={ConfirmEmailPage} />
                         </div>
                     </div>
                 </div>
