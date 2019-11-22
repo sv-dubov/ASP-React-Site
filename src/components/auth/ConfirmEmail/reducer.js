@@ -52,10 +52,10 @@ export const confirmEmailUser = (model) => {
                 dispatch(push('/Signin'));
             }, err => {
                 dispatch({type: CONFIRMEMAIL_FAILED, servErrors: err.response.data});
-                console.log('Server problen in controler message', err.response.data);
+                console.log('Server problem in controler message', err.response.data);
             })
             .catch(err=> {
-                console.log('Global Server problen in controler message', err);
+                console.log('Global Server problem in controler message', err);
             });
         // setTimeout(()=> {
         //     dispatch({type: CONFIRMEMAIL_SUCCESS});

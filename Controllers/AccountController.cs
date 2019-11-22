@@ -86,7 +86,7 @@ namespace MyApp.Controllers
                         $"{frontEndURL}/confirmemail?userId={user.Id}&" +
                         $"code={WebUtility.UrlEncode(code)}";
 
-                    await _emailSender.SendEmailAsync(model.Email, "Confirm Email",
+                    await _emailSender.SendEmailAsync(model.Email, "Підтвердження реєстрації",
                        $"Please confirm your email by clicking here: " +
                        $"<a href='{callbackUrl}'>link</a>");
                     return Ok();
@@ -107,13 +107,13 @@ namespace MyApp.Controllers
         }
 
         [HttpPost("confirmemail/{userid}")]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(string userid, [FromBody]ConfirmEmailViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                var errrors = CustomValidator.GetErrorsByModel(ModelState);
-                return BadRequest(errrors);
+                var err = CustomValidator.GetErrorsByModel(ModelState);
+                return BadRequest(err);
             }
             var user = await _userManager.FindByIdAsync(userid);
             if (user == null)
@@ -123,8 +123,8 @@ namespace MyApp.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, model.Code);
             if (!result.Succeeded)
             {
-                var errrors = CustomValidator.GetErrorsByIdentityResult(result);
-                return BadRequest(errrors);
+                var err = CustomValidator.GetErrorsByIdentityResult(result);
+                return BadRequest(err);
             }
             return Ok();
         }

@@ -22,7 +22,7 @@ import Feature from './components/Feature';
 import RequiredAuth from './components/RequiredAuth';
 import reducers from './reducers/index';
 import Startup from './Startup';
-import ConfirmEmailPage from './components/auth/ConfirmEmail';
+import ConfirmEmailPage from './components/auth/ConfirmEmail/ConfirmEmailPage';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 

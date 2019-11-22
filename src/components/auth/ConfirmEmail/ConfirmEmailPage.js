@@ -28,7 +28,7 @@ class ConfirmEmailPage extends Component {
       }
 
     UNSAFE_componentWillReceiveProps = (nextProps) => {
-        console.log('Change props ');
+        console.log('Change props');
         this.setState({
             loading: nextProps.loading,
             errors: nextProps.errors
@@ -37,7 +37,6 @@ class ConfirmEmailPage extends Component {
 
     render() { 
         console.log('----props----', this.props);
-        
         return (
             <h1>Підтвердження пошти</h1>
          );
@@ -52,7 +51,5 @@ const mapState = (state) => {
 }
 
 ConfirmEmailPage.propTypes = propTypes;
-
-
  
 export default connect(mapState, {confirmEmail: confirmEmailUser})(ConfirmEmailPage);
